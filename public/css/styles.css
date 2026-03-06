@@ -1,0 +1,352 @@
+/*GEERAL*/
+* {
+    font-family: 'Roboto';
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.row{
+    margin:0;
+}
+
+.container-fluid{
+    padding: 0;
+}
+
+.btn-primary{
+    background-color:#1228f7;
+    border: 2pix solid #0c0cbb;
+}
+
+.btn-primary:hover{
+    background-color:#0c0cbb;
+    border-color: #0c0cbb;
+}
+
+.msg {
+    background-color: #D4EDDA;
+    color:#155724;
+    border:1pix solid #c3e6cb;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+@media print {
+
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .report-header{
+        display:flex;
+        align-items:center;
+        gap:30px;
+        margin-bottom:10px;
+    }
+
+    .report-info h2{
+        margin:0;
+        font-size:20px;
+    }
+
+    .report-info h4{
+        margin-top:5px;
+        font-size:16px;
+    }
+
+    .report-info p{
+        margin:2px 0;
+        font-size:12px;
+    }
+
+    /* Mostrar cabeçalho */
+    .print-header{
+        display:block !important;
+        text-align:center;
+    }
+
+    /* esconder elementos desnecessários */
+    nav,
+    footer,
+    .btn,
+    .actions {
+        display:none !important;
+    }
+
+    /* esconder cards mobile */
+    .d-md-none{
+        display:none !important;
+    }
+
+    /* mostrar tabela */
+    .d-md-block{
+        display:block !important;
+    }
+
+    /* escondendo <th>Ações</th> */
+    .no-print {
+        display:none !important;
+    }
+
+
+    /*esconde aviso de logado como admin*/
+    .alert{
+        display:none !important;
+    }
+
+    .table-responsive-md{
+        overflow:visible !important;
+    }
+
+    table{
+        border-collapse: collapse;
+    }
+
+    table th{
+        background:#f2f2f2;
+        font-weight:bold;
+    }
+
+    table th,
+    table td{
+        border:1px solid #ccc;
+        padding:5px;
+        text-align:center;
+    }
+
+    @page {
+        margin: 20mm;
+    }
+
+}
+
+.print-header{
+    display:none;
+}
+
+/*NAVBAR*/
+/* NAVBAR */
+
+.navbar img {
+    width: 100px;
+}
+
+.navbar {
+    background-color: #fff;
+    padding: 5px 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    font-size: 14px;
+    color: #757575;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #1228f7 !important;
+}
+
+/*SEARCH CONTAINER*/
+
+#search-container {
+     background-image:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("../img/frotaCarros1.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    padding: 50px;
+    text-align: center;
+}
+
+#search-container h1{
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+
+#search-container form{
+    width: 50%;
+    margin: 0 auto;
+}
+
+/*EVENTS LIST*/
+#events-container {
+    padding: 50px;
+}
+
+#events-container h2 {
+    margin-bottom: 10px;
+}
+
+#events-container .subtitle {
+    color: #757575;
+    margin-bottom: 30px;
+}
+
+#cards-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#events-container .card {
+    border-radius: 8px;
+     margin: 0.3%;
+    border: 1px solid #e0e0e0;
+    transition: 0.2s ease-in-out;
+}
+
+#events-container .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.card-info p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+/* PADRONIZAÇÃO DA IMAGEM */
+#events-container .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* PADRONIZAÇÃO DO CORPO */
+#events-container .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* BOTÃO SEMPRE NO FINAL */
+#events-container .card-body .btn {
+    margin-top: auto;
+}
+
+.card .card-date{
+    font-size: 12px;
+    color: #ccc;
+}
+
+.card .card-title {
+    color: #212121;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.card-usuarios {
+    font-size: 14px;
+    color: #757575 ;
+}
+
+/*EVENT CREATE PAGE*/
+
+#event-create-container {
+    padding: 30px;
+}
+
+#event-create-container label {
+    font-weight: bold;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea {
+    font-size: 12px;
+}
+
+/* PAGÍNA DO EVENTO/ATIVIDADE */
+/* PÁGINA DO EVENTO */
+
+.card h2 {
+    font-weight: 700;
+    color: #212121;
+}
+
+.card p {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.card hr {
+    margin: 20px 0;
+}
+
+.card h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#info-container ion-icon {
+    font-size: 20px;
+    color: #1228f7;
+    margin-right: 5px;
+}
+
+
+/*DASHBOARD TABELA*/
+
+.dashboard-events-container table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.dashboard-events-container th,
+.dashboard-events-container td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* espaço entre botões */
+}
+
+.actions form {
+    margin: 0;
+}
+
+.img-preview {
+    width: 100px;
+    margin-top: 20px;
+}
+
+
+/* FOOTER*/
+footer {
+    text-align: center;
+    background-color: #020a4e;
+    color: #fff;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    letter-spacing: 0.5px;
+}
+
+footer p {
+    margin-bottom: 0;
+    font-size: 20px ;
+}
+
+.footer-author {
+    font-size: 11px;
+    font-weight: initial;
+    margin-top: 5px;
+}
