@@ -77,6 +77,7 @@
                         <p class="mb-1"><strong>Linha:</strong> {{ $event->line }}</p>
                         <p class="mb-1"><strong>Percurso:</strong> {{ $event->start_time }}</p>
                         <p class="mb-2"><strong>Instrutor:</strong> {{ $event->user->name }}</p>
+                        
 
                         @if(auth()->id() == $event->user_id || auth()->user()->is_admin)
                             <div class="d-flex">
@@ -114,6 +115,7 @@
                         <th>Linha</th>
                         <th>Percurso</th>
                         <th>Instrutor</th>
+
                         <th class="no-print">Ações</th>
                     </tr>
                 </thead>
@@ -128,6 +130,7 @@
                         <td>{{ $event->line }}</td>
                         <td>{{ $event->start_time }}</td>
                         <td>{{ $event->user->name }}</td>
+
 
                         @if(auth()->id() == $event->user_id || auth()->user()->is_admin)
                         <td class="no-print">
