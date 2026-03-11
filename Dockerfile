@@ -19,23 +19,19 @@ RUN docker-php-ext-install zip pdo pdo_pgsql pgsql
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copiar arquivos de dependências primeiro (melhora cache)
-COPY composer.json composer.lock ./
-
-RUN composer install --no-dev --optimize-autoloader
-
-# Copiar dependências do Node
-COPY package.json package-lock.json ./
-
-RUN npm install
-
-# Agora copiar o restante do projeto
+# Copiar todo o projeto
 COPY . .
 
-# Build do Vite
+# Instalar dependências PHP
+RUN composer install --no-dev --optimize-autoloader
+
+# Instalar dependências Node
+RUN npm install
+
+# Build dos assets (Vite / Tailwind)
 RUN npm run build
 
-# Garantir que assets foram gerados
+# Verificar build
 RUN ls -la public/build
 
 # Porta usada pelo Render
