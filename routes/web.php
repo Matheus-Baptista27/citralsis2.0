@@ -25,6 +25,18 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+use App\Models\User;
+
+Route::get('/make-admin', function () {
+
+    User::where('email', 'matheus.baptista@citral.com.br')
+        ->update(['is_admin' => true]);
+
+    User::where('email', 'adriano@citral.tur.br')
+        ->update(['is_admin' => true]);
+
+    return "Admins atualizados!";
+});
 
 
 
