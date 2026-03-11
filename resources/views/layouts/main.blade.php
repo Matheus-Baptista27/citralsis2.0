@@ -20,6 +20,16 @@
             <a href="/" class="navbar-brand">
                 <img src="/img/logoSemFundo.png" alt="logoSemFundo">
             </a>
+            
+            @if(auth()->check())
+            <span>
+                Olá, <strong>{{ auth()->user()->name }}</strong>
+                @if(auth()->user()->is_admin)
+                    <span class="text-red-600 font-bold">(ADMIN)</span>
+                @endif
+            </span>
+              @endif
+
 
             <!-- BOTÃO HAMBURGUER -->
             <button class="navbar-toggler" type="button"

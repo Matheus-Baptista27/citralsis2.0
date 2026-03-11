@@ -13,7 +13,7 @@ class AdminUserSeeder extends Seeder
         $admins = [
             [
                 'name' => 'Administrador 1',
-                'email' => 'matheus.baptista@citral.com.br',
+                'email' => 'matheus.baptista@citral.tur.br',
                 'password' => '123456',
             ],
             [
