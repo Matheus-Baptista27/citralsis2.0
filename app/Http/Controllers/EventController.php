@@ -127,9 +127,9 @@ public function dashboard()
 {
     $event = Event::findOrFail($request->id);
 
-    if ($event->user_id !== auth()->id()) {
-        abort(403);
-    }
+        if ($event->user_id !== auth()->id() && !auth()->user()->is_admin) {
+            abort(403);
+        }
 
     $data = [
         'status' => $request->status,

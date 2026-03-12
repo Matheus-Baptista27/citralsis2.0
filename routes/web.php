@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', [EventController::class, 'index'])->middleware('auth');
 Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
@@ -19,24 +20,25 @@ Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('aut
 Route::get('/admin', [EventController::class, 'admin'])->middleware('auth');
 
 
+//rota para admin criar usuarios e etc
+Route::middleware('auth')->group(function () {
+
+    Route::get('/users', [UserController::class, 'index']);
+    Route::get('/users/create', [UserController::class, 'create']);
+    Route::post('/users', [UserController::class, 'store']);
+
+    Route::get('/users/edit/{id}', [UserController::class, 'edit']);
+    Route::put('/users/update/{id}', [UserController::class, 'update']);
+
+    Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+});
 
 
 Route::get('/contact', function () {
     return view('contact');
 });
 
-use App\Models\User;
-
-Route::get('/fix-admin-name', function () {
-
-    User::where('email','matheus.baptista@citral.tur.br')
-        ->update(['name' => 'Matheus']);
-
-    User::where('email','adriano@citral.tur.br')
-        ->update(['name' => 'Adriano']);
-
-    return "Administradores atualizados!";
-});
 
 
 

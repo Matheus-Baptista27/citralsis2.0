@@ -20,15 +20,6 @@
             <a href="/" class="navbar-brand">
                 <img src="/img/logoSemFundo.png" alt="logoSemFundo">
             </a>
-            
-            @if(auth()->check())
-            <span>
-                Olá, <strong>{{ auth()->user()->name }}</strong>
-                @if(auth()->user()->is_admin)
-                    <span class="text-red-600 font-bold">(ADMIN)</span>
-                @endif
-            </span>
-              @endif
 
 
             <!-- BOTÃO HAMBURGUER -->
@@ -52,17 +43,35 @@
                         <a href="/events/create" class="nav-link">Criar Atividade</a>
                     </li>
 
+                                @auth
+                    @if(auth()->user()->is_admin)
+
+                        <li class="nav-item">
+                            <a href="/users" class="nav-link">
+                                Usuários
+                            </a>
+                        </li>
+
+                    @endif
+                    @endauth
+
+
                     @auth
-                    <li class="nav-item">
+                   <li class="nav-item">
                         <a href="/dashboard" class="nav-link">
-                            @if(auth()->user()->is_admin)
-                                Todas as Atividades
-                                <span class="badge badge-danger">ADMIN</span>
-                            @else
-                                Minhas Atividades
-                            @endif
+                            {{ auth()->user()->is_admin ? 'Todas as Atividades' : 'Minhas Atividades' }}
                         </a>
                     </li>
+
+                     @auth
+                        <li class="nav-item nav-link">
+                            Olá, <strong>{{ auth()->user()->name }}</strong>
+
+                            @if(auth()->user()->is_admin)
+                                <span class="badge badge-danger">ADMIN</span>
+                            @endif
+                        </li>
+                    @endauth
 
                     <li class="nav-item">
                         <form action="/logout" method="POST">
@@ -79,9 +88,9 @@
                     <li class="nav-item">
                         <a href="/login" class="nav-link">Entrar</a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a href="/register" class="nav-link">Cadastrar</a>
-                    </li>
+                    </li>-->
                     @endguest
 
                 </ul>

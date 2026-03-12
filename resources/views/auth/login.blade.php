@@ -64,12 +64,13 @@
 
         </form>
 
-        <div class="mt-4 text-center">
+        {{-- Registro desativado --}}
+         {{--<div class="mt-4 text-center">
             <a href="{{ route('register') }}"
                class="underline text-sm text-gray-600 hover:text-gray-900">
                 {{ __("Não tem uma conta? Cadastre-se") }}
             </a>
-        </div>
+        </div>--}}
 
         <div class="mt-6 text-center border-t pt-4">
             <p class="text-base font-semibold text-blue-600 tracking-wide">
