@@ -25,6 +25,18 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+use App\Models\User;
+
+Route::get('/fix-admin-name', function () {
+
+    User::where('email','matheus.baptista@citral.tur.br')
+        ->update(['name' => 'Matheus']);
+
+    User::where('email','adriano@citral.tur.br')
+        ->update(['name' => 'Adriano']);
+
+    return "Administradores atualizados!";
+});
 
 
 
