@@ -6,8 +6,65 @@
 
 <div id="search-container" class="col-md-12">
     <h1>Consulte um Instrutor</h1>
-    <form action="/" method="GET">
-    <input type="text" id="search" name="search" class="form-control" placeholder="N° Funcionário ...">
+<form action="/" method="GET">
+    <div class="input-group mt-3 mb-3">
+
+        <input
+            type="text"
+            id="search"
+            name="search"
+            class="form-control"
+            placeholder="N° Funcionário..."
+            value="{{ $search }}"
+        >
+
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+                🔍 Buscar
+            </button>
+        </div>
+
+        <a href="/" class="btn btn-secondary ml-2">
+            Limpar
+        </a>
+
+    </div>
+</form>
+</div>
+
+<!-- -->
+<div class="print-header">
+
+    <div class="report-header">
+
+        <div class="logo">
+            <img src="/img/logoSemFundo.png" width="160">
+        </div>
+
+        <div class="report-info">
+
+            <h2>CITRAL SIS 2.0</h2>
+
+            <h4>Relatório de Atividades</h4>
+
+            <p>
+                Usuário: {{ auth()->user()->name }}
+            </p>
+
+            <p>
+                Data da impressão: {{ date('d/m/Y H:i') }}
+            </p>
+
+            <p>
+                Total de atividades: {{ $events->count() }}
+            </p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
 </div>
 
 <div id="events-container" class="col-md-12">
@@ -18,6 +75,12 @@
     <h2>Atividades</h2>
     <p class="subtitle">Veja as atividades</p>
     @endif
+
+    <div class="mb-3">
+        <button onclick="window.print()" class="btn btn-success">
+            Imprimir
+        </button>
+    </div>
 
     <div id="cards-container" class="row">
         @foreach($events as $event)
@@ -38,6 +101,7 @@
                     Motorista: {{ $event->driver }} <br>
                     Carro: {{ $event->car }} <br>
                     Linha: {{ $event->line }} <br>
+                    Percurso: {{ $event->start_time_formatted }} <br>
                     Observação: {{ $event->description }}
                 </p>
 

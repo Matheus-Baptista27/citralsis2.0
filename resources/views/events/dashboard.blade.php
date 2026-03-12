@@ -4,47 +4,11 @@
 
 @section('content')
 
- <div class="print-header">
 
-    <div class="report-header">
-
-        <div class="logo">
-            <img src="/img/logoSemFundo.png" width="160">
-        </div>
-
-        <div class="report-info">
-
-            <h2>CITRAL SIS 2.0</h2>
-
-            <h4>Relatório de Atividades</h4>
-
-            <p>
-                Usuário: {{ auth()->user()->name }}
-            </p>
-
-            <p>
-                Data da impressão: {{ date('d/m/Y H:i') }}
-            </p>
-
-            <p>
-                Total de atividades: {{ $events->count() }}
-            </p>
-
-        </div>
-
-    </div>
-
-    <hr>
-
-</div>
 
 <div class="col-md-10 offset-md-1 dashboard-title-container d-flex justify-content-between align-items-center">
 
    <h1 class="mb-0">Minhas Atividades</h1>
-
-   <button onclick="window.print()" class="btn btn-secondary">
-        🖨️ Imprimir
-   </button>
 
 </div>
 
@@ -72,12 +36,13 @@
                         <h5 class="card-title">{{ $event->status }}</h5>
 
                         <p class="mb-1"><strong>Motorista:</strong> {{ $event->driver }}</p>
-                        <p class="mb-1"><strong>Data:</strong> {{ $event->date }}</p>
+                        <p class="mb-1"><strong>Data:</strong> {{ $event->date_formatted }}</p>
                         <p class="mb-1"><strong>Carro:</strong> {{ $event->car }}</p>
                         <p class="mb-1"><strong>Linha:</strong> {{ $event->line }}</p>
-                        <p class="mb-1"><strong>Percurso:</strong> {{ $event->start_time }}</p>
+                        <p class="mb-1"><strong>Percurso:</strong> {{ $event->start_time_formatted }}</p>
                         <p class="mb-2"><strong>Instrutor:</strong> {{ $event->user->name }}</p>
-                        
+                        <p class="mb-2"><strong>Observações</strong> {{ $event->description }}</p>
+
 
                         @if(auth()->id() == $event->user_id || auth()->user()->is_admin)
                             <div class="d-flex">
@@ -107,7 +72,7 @@
             <table class="table table-striped table-hover align-middle w-100">
                 <thead>
                     <tr>
-                        <th>#</th>
+
                         <th>Status</th>
                         <th>Motorista</th>
                         <th>Data</th>
@@ -115,21 +80,24 @@
                         <th>Linha</th>
                         <th>Percurso</th>
                         <th>Instrutor</th>
-
+                        <th>Observações</th>
                         <th class="no-print">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($events as $event)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+
                         <td><a href="/events/{{ $event->id }}">{{ $event->status }}</a></td>
                         <td>{{ $event->driver }}</td>
-                        <td>{{ $event->date }}</td>
+                        <td>{{ $event->date_formatted }}</td>
                         <td>{{ $event->car }}</td>
                         <td>{{ $event->line }}</td>
-                        <td>{{ $event->start_time }}</td>
+                        <td>{{ $event->start_time_formatted }}</td>
                         <td>{{ $event->user->name }}</td>
+                        <td class="obs-cell">
+                            {{ Str::limit($event->description, 40) }}
+                        </td>
 
 
                         @if(auth()->id() == $event->user_id || auth()->user()->is_admin)

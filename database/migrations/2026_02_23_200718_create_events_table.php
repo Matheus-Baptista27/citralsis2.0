@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
 
            // $table->string('instructor');
-            $table->string('status');
-            $table->date('date');
-            $table->string('driver');
-            $table->string('car');
-            $table->string('line');
+            $table->string('status')->nullable();
+            $table->date('date')->nullable();
+            $table->string('driver')->nullable();
+            $table->string('car')->nullable();
+            $table->string('line')->nullable();
             $table->time('start_time')->nullable();
             $table->time('end_time')->nullable();
             $table->text('description')->nullable();
