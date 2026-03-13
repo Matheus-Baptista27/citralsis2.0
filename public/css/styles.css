@@ -73,32 +73,33 @@ header {
         font-size:12px;
     }
 
-    /* Mostrar cabeçalho na impressão */
+    /* Mostrar cabeçalho */
 
     .print-header{
         display:block !important;
         text-align:center;
         margin-bottom:20px;
     }
-    /* manter 4 cards por linha */
+
+    /* GRID DOS CARDS NA IMPRESSÃO */
 
     #cards-container{
         display:flex;
         flex-wrap:wrap;
     }
 
-    #cards-container .card{
-        /*width:25% !important;*/
-        width:33.33% !important;
-        max-width:25% !important;
-        flex:0 0 25% !important;
+    #cards-container > div{
+        width:25%;
+        max-width:25%;
+        flex:0 0 25%;
+        padding:6px;
     }
 
     /* evitar quebra de card */
 
     .card{
-        break-inside: avoid;
-        page-break-inside: avoid;
+        break-inside:avoid;
+        page-break-inside:avoid;
     }
 
     /* esconder elementos desnecessários */
@@ -108,20 +109,13 @@ header {
     .btn,
     .actions,
     #search-container,
-    .alert {
+    .alert{
         display:none !important;
-    }
-
-    /* evitar quebra de card no meio da página */
-
-    .card{
-        break-inside: avoid;
-        page-break-inside: avoid;
     }
 
     /* margens da página */
 
-    @page {
+    @page{
         margin:20mm;
     }
 
@@ -176,6 +170,25 @@ header {
 #search-container form{
     width: 50%;
     margin: 0 auto;
+}
+
+/*ESTILIZAÇÃO DA INFORMAÇÃO DO INSTRUTOR NO FORMULARIO*/
+.instructor-info{
+    background: #f5f7fa;
+    border-left: 4px solid #0d6efd;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.instructor-info .label{
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.instructor-info .name{
+    color: #0d6efd;
+    font-weight: 600;
 }
 
 /*EVENTS LIST*/

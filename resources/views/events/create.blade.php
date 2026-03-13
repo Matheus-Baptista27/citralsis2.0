@@ -10,9 +10,9 @@
     <form action="/events" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <div class="form-group mb-3">
-            <label for="instructor">Instrutor:</label>
-            <input type="text" class="form-control" id="instructor" name="instructor" placeholder="Instrutor">
+        <div class="instructor-info mb-3">
+            <span class="label">Instrutor:</span>
+            <span class="name">{{ auth()->user()->name }}</span>
         </div>
 
         <div class="form-group mb-3">

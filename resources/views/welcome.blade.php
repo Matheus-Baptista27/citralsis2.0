@@ -6,30 +6,33 @@
 
 <div id="search-container" class="col-md-12">
     <h1>Consulte um Instrutor</h1>
-<form action="/" method="GET">
-    <div class="input-group mt-3 mb-3">
 
-        <input
-            type="text"
-            id="search"
-            name="search"
-            class="form-control"
-            placeholder="N° Funcionário..."
-            value="{{ $search }}"
-        >
+    <form action="/" method="GET">
 
-        <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">
-                🔍 Buscar
-            </button>
+        <!-- Campo de busca -->
+        <div class="mb-2">
+            <input
+                type="text"
+                id="search"
+                name="search"
+                class="form-control"
+                placeholder="N° Funcionário ..."
+                value="{{ $search }}"
+            >
         </div>
 
-        <a href="/" class="btn btn-secondary ml-2">
-            Limpar
-        </a>
+        <!-- Botões -->
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary flex-fill">
+                Buscar
+            </button>
 
-    </div>
-</form>
+            <a href="/" class="btn btn-secondary flex-fill">
+                Limpar
+            </a>
+        </div>
+
+    </form>
 </div>
 
 <!-- -->
@@ -85,7 +88,8 @@
     <div id="cards-container" class="row">
         @foreach($events as $event)
 
-        <div class="card col-md-3 mb-4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card h-100">
             <div class="card-body">
 
                 <p class="card-date">
@@ -109,6 +113,7 @@
 
             </div>
         </div>
+    </div>
 
         @endforeach
         @if(count($events) == 0 && $search)

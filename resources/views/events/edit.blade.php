@@ -11,11 +11,12 @@
         @csrf
         @method('PUT')
 
-        <div class="form-group mb-3">
-            <label>Instrutor:</label>
-            <input type="text" class="form-control" placeholder="Instrutor" value="{{ $event->user->name }}"disabled>
-        </div>
 
+        <div class="instructor-info mb-3">
+            <span class="label">Instrutor:</span>
+            <span class="name">{{ auth()->user()->name }}</span>
+        </div>
+        
         <div class="form-group mb-3">
             <label for="status">Status:</label>
             <input type="text" class="form-control" id="status" name="status" placeholder="Status da Atividade" value="{{ $event->status }}" >
