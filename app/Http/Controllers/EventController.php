@@ -50,6 +50,14 @@ class EventController extends Controller
             'search' => $search
         ]);
     }
+    // ==========================
+    // ==========================
+    // Redireciona usuários pós-login
+    // ==========================
+    protected function authenticated($request, $user)
+    {
+        return redirect('/'); // força ir direto pro welcome.blade.php
+    }
 
     public function create() {
         return view('events.create');
