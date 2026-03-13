@@ -118,16 +118,50 @@ public function show($id)
 
 public function dashboard()
 {
-    if (auth()->user()->is_admin) {
 
-        // Admin vê todas
-        $events = Event::with('user')->get();
+    $search = request('search');
+    $status = request('status');
+    $period = request('period');
 
-    } else {
+    $query = Event::with('user');
 
-        // Usuário normal vê só as próprias
-        $events = Event::where('user_id', auth()->id())->get();
+    // mostrar apenas eventos do usuário (ou todos se admin)
+    if(!auth()->user()->is_admin){
+        $query->where('user_id', auth()->id());
     }
+
+    // BUSCA
+    if($search){
+        $query->where(function($q) use ($search){
+            $q->whereRaw('LOWER(driver) LIKE ?', ['%' . strtolower($search) . '%']);
+        });
+    }
+
+    // STATUS
+    if($status){
+        $query->where('status', $status);
+    }
+
+    // PERÍODO
+    if($period){
+
+        if($period == 'today'){
+            $query->whereDate('date', today());
+        }
+
+        if($period == 'week'){
+            $query->whereBetween('date', [now()->startOfWeek(), now()->endOfWeek()]);
+        }
+
+        if($period == 'month'){
+            $query->whereMonth('date', now()->month);
+        }
+
+    }
+
+    $events = $query
+        ->orderBy('date','desc')
+        ->paginate(10);
 
     return view('events.dashboard', ['events' => $events]);
 }

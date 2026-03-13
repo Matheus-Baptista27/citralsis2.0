@@ -11,7 +11,7 @@
         @csrf
 
         <div class="instructor-info mb-3">
-            <span class="label">Instrutor:</span>
+            <span class="label">Olá, Instrutor:</span>
             <span class="name">{{ auth()->user()->name }}</span>
         </div>
 
@@ -43,11 +43,6 @@
         <div class="form-group mb-3">
             <label for="start_time">Início Percurso:</label>
             <input type="time" class="form-control" id="start_time" name="start_time">
-        </div>
-
-        <div class="form-group mb-3">
-            <label for="end_time">Fim Percurso:</label>
-            <input type="time" class="form-control" id="end_time" name="end_time">
         </div>
 
         <div class="form-group mb-3">

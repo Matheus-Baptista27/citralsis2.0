@@ -16,7 +16,7 @@
                 id="search"
                 name="search"
                 class="form-control"
-                placeholder="Nome do Funcionário ..."
+                placeholder="Nome do Instrutor ..."
                 value="{{ $search }}"
             >
         </div>
@@ -127,7 +127,7 @@
                     Motorista: {{ $event->driver }} <br>
                     Carro: {{ $event->car }} <br>
                     Linha: {{ $event->line }} <br>
-                    Percurso: {{ $event->start_time_formatted }} <br>
+                    Horário: {{ $event->start_time_formatted }} <br>
                     Observação: {{ $event->description }}
                 </p>
 

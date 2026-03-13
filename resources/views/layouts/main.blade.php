@@ -36,14 +36,14 @@
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Consultar</a>
+                        <a href="/" class="nav-link">Início</a>
                     </li>
 
                     <li class="nav-item">
                         <a href="/events/create" class="nav-link">Criar Atividade</a>
                     </li>
 
-                                @auth
+                    @auth
                     @if(auth()->user()->is_admin)
 
                         <li class="nav-item">
@@ -51,7 +51,6 @@
                                 Usuários
                             </a>
                         </li>
-
                     @endif
                     @endauth
 
@@ -111,7 +110,7 @@
                 </main>
                 <footer>
                     <p>CITRAL SIS 2.0 &copy; 2026</p>
-                    <p class="footer-author">Por: Matheus Baptista</p>
+                    <p class="footer-author">Desenvolvido por: Matheus Baptista</p>
                  </footer>
 
                   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>

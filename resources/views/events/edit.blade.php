@@ -16,7 +16,7 @@
             <span class="label">Instrutor:</span>
             <span class="name">{{ auth()->user()->name }}</span>
         </div>
-        
+
         <div class="form-group mb-3">
             <label for="status">Status:</label>
             <input type="text" class="form-control" id="status" name="status" placeholder="Status da Atividade" value="{{ $event->status }}" >
@@ -45,11 +45,6 @@
         <div class="form-group mb-3">
             <label for="start_time">Início Percurso:</label>
             <input type="time" class="form-control" id="start_time" name="start_time" value="{{ $event->start_time }}">
-        </div>
-
-        <div class="form-group mb-3">
-            <label for="end_time">Fim Percurso:</label>
-            <input type="time" class="form-control" id="end_time" name="end_time" value="{{ $event->end_time }}">
         </div>
 
         <div class="form-group mb-3">
