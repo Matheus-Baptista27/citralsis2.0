@@ -21,6 +21,28 @@
             >
         </div>
 
+        <!-- DATAS -->
+        <div class="row mb-3 justify-content-center">
+
+        <div class="col-md-4 text-center">
+            <label class="form-label"><strong>Data Início</strong></label>
+            <input type="date"
+                name="date_start"
+                class="form-control"
+                value="{{ request('date_start') }}">
+        </div>
+
+        <div class="col-md-4 text-center">
+            <label class="form-label"><strong>Data Fim</strong></label>
+            <input type="date"
+                name="date_end"
+                class="form-control"
+                value="{{ request('date_end') }}">
+        </div>
+    </div>
+
+
+
         <!-- Botões -->
         <div class="d-flex gap-2">
             <button type="submit" class="btn btn-primary flex-fill">

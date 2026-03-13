@@ -13,6 +13,8 @@ class EventController extends Controller
     public function index()
     {
         $search = request('search');
+        $dateStart = request('date_start');
+        $dateEnd = request('date_end');
 
         $query = Event::with('user');
 
@@ -31,7 +33,17 @@ class EventController extends Controller
             });
         }
 
-        $events = $query->get();
+        // Filtro data início
+        if ($dateStart) {
+            $query->whereDate('date', '>=', $dateStart);
+        }
+
+        // Filtro data fim
+        if ($dateEnd) {
+            $query->whereDate('date', '<=', $dateEnd);
+        }
+
+        $events = $query->orderBy('date', 'desc')->get();
 
         return view('welcome', [
             'events' => $events,

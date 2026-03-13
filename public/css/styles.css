@@ -172,6 +172,12 @@ header {
     margin: 0 auto;
 }
 
+/*estilização da data na consulta*/
+#search-container label{
+    color: #ffffff;
+    font-weight: bold;
+}
+
 /*ESTILIZAÇÃO DA INFORMAÇÃO DO INSTRUTOR NO FORMULARIO*/
 .instructor-info{
     background: #f5f7fa;
