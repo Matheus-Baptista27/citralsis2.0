@@ -16,7 +16,7 @@
                 id="search"
                 name="search"
                 class="form-control"
-                placeholder="N° Funcionário ..."
+                placeholder="Nome do Funcionário ..."
                 value="{{ $search }}"
             >
         </div>

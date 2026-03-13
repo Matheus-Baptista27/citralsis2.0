@@ -24,14 +24,27 @@ class EventController extends Controller
         }
 
         // Se houver busca
-        if ($search) {
-            $query->where(function ($q) use ($search) {
-                $q->where('driver', 'like', '%' . $search . '%')
-                ->orWhereHas('user', function ($subQuery) use ($search) {
-                    $subQuery->where('name', 'like', '%' . $search . '%');
-                });
-            });
-        }
+       if ($search) {
+
+    $query->where(function ($q) use ($search) {
+
+        // Se for número → buscar por número de funcionário
+        if (is_numeric($search)) {
+
+            $q->where('driver', 'like', '%' . $search . '%');
+
+        } else {
+
+            // Se for texto → buscar por nome (case insensitive)
+            $q->whereRaw('LOWER(driver) LIKE ?', ['%' . strtolower($search) . '%'])
+              ->orWhereHas('user', function ($subQuery) use ($search) {
+                  $subQuery->whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($search) . '%']);
+              });
+            }
+
+        });
+
+    }
 
         // Filtro data início
         if ($dateStart) {
