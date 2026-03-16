@@ -15,7 +15,7 @@
 
         <!-- CSS DA APLICAÇÃO -->
         <link rel="stylesheet" href="/css/styles.css">
-       <!-- <script src="/js/scripts.js"></script> -->
+        <!-- <script src="/js/scripts.js"></script> -->
     </head>
     <body>
         <header>
@@ -24,6 +24,16 @@
                 <img src="/img/logoSemFundo.png" alt="logoSemFundo">
             </a>
 
+
+                     @auth
+                        <li class="nav-item nav-link">
+                            Olá, <strong>{{ auth()->user()->name }}</strong>
+
+                            @if(auth()->user()->is_admin)
+                                <span class="badge badge-danger">ADMIN</span>
+                            @endif
+                        </li>
+                    @endauth
 
             <!-- BOTÃO HAMBURGUER -->
             <button class="navbar-toggler" type="button"
@@ -46,6 +56,7 @@
                         <a href="/events/create" class="nav-link">Criar Atividade</a>
                     </li>
 
+
                     @auth
                     @if(auth()->user()->is_admin)
 
@@ -57,7 +68,6 @@
                     @endif
                     @endauth
 
-
                     @auth
                    <li class="nav-item">
                         <a href="/dashboard" class="nav-link">
@@ -65,15 +75,7 @@
                         </a>
                     </li>
 
-                     @auth
-                        <li class="nav-item nav-link">
-                            Olá, <strong>{{ auth()->user()->name }}</strong>
-
-                            @if(auth()->user()->is_admin)
-                                <span class="badge badge-danger">ADMIN</span>
-                            @endif
-                        </li>
-                    @endauth
+                <!-- aqui era onde estav ao código para aparecer o "Olá, usuario" na navbar-->
 
                     <li class="nav-item">
                         <form action="/logout" method="POST">
