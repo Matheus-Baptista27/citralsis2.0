@@ -5,7 +5,7 @@
 @section('content')
 
 <div id="search-container" class="col-md-12">
-    <h1>Consulte um Instrutor</h1>
+    <h1>Consultar</h1>
 
     <form action="/" method="GET">
 
@@ -16,7 +16,7 @@
                 id="search"
                 name="search"
                 class="form-control"
-                placeholder="Nome do Instrutor ..."
+                placeholder="Colaborador ..."
                 value="{{ $search }}"
             >
         </div>
