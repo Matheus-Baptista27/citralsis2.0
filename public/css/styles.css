@@ -19,8 +19,12 @@ header {
     margin:0;
 }
 
+.container{
+    padding: 10px;
+}
 .container-fluid{
     padding: 0;
+    padding-bottom: 30px;
 }
 
 .btn-primary{
@@ -43,6 +47,44 @@ header {
     padding: 10px;
 }
 
+/*CSS MOBILE*/
+@media (max-width: 768px) {
+
+    .navbar {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .navbar-collapse {
+        background: #fff;
+        padding: 15px;
+        border-radius: 12px;
+        margin-top: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar-nav {
+        margin-top: 10px;
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background-color: #f2f2f2;
+    }
+
+}
+
+
+
+/*CSS DA IMPRESSÃO RESPONSIVIDADE*/
 @media print {
 
     body{
@@ -118,6 +160,8 @@ header {
     @page{
         margin:20mm;
     }
+
+
 
 }
 

@@ -37,16 +37,16 @@
 
                                 <option value="">Todos status</option>
 
-                                <option value="Treinamento" {{ request('status') == 'Treinamento' ? 'selected' : '' }}>
-                                    Treinamento
+                                <option value="Acompanhamento" {{ request('status') == 'Acompanhamento' ? 'selected' : '' }}>
+                                    Acompanhamento
                                 </option>
 
-                                <option value="Avaliação" {{ request('status') == 'Avaliação' ? 'selected' : '' }}>
-                                    Avaliação
+                                <option value="Escalado" {{ request('status') == 'Escalado' ? 'selected' : '' }}>
+                                    Escalado
                                 </option>
 
-                                <option value="Reciclagem" {{ request('status') == 'Reciclagem' ? 'selected' : '' }}>
-                                    Reciclagem
+                                <option value="Folga" {{ request('Folga') == 'Folga' ? 'selected' : '' }}>
+                                    Folga
                                 </option>
 
                             </select>
