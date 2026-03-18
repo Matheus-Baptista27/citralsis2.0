@@ -237,10 +237,18 @@
 
     </div>
 
-
     {{-- PAGINAÇÃO --}}
     <div class="col-md-10 offset-md-1 mt-3">
-        {{ $events->appends(request()->query())->links() }}
+
+        <div class="mb-2">
+            Mostrando {{ $events->firstItem() }} até {{ $events->lastItem() }}
+            de {{ $events->total() }} resultados
+        </div>
+
+        <div>
+            {{ $events->appends(request()->query())->onEachSide(1)->links() }}
+        </div>
+
     </div>
 
 @endsection

@@ -56,7 +56,10 @@ class EventController extends Controller
             $query->whereDate('date', '<=', $dateEnd);
         }
 
-        $events = $query->orderBy('date', 'desc')->get();
+        $events = $query
+            ->orderBy('date', 'desc')
+            ->paginate(16)
+            ->appends(request()->query());
 
         return view('welcome', [
             'events' => $events,

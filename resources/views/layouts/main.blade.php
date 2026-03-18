@@ -101,7 +101,7 @@
             </div>
 
         </nav>
-            </header>
+    </header>
 
             <main>
                 <div class="container-fluid">
@@ -113,6 +113,8 @@
                         </div>
                     </div>
                 </main>
+
+                
                 <footer>
                     <p>CITRAL SIS 2.0 &copy; 2026</p>
                     <p class="footer-author">Desenvolvido por: Matheus Baptista</p>

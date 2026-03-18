@@ -396,6 +396,17 @@ header {
     text-overflow:ellipsis;
 }
 
+/*PAGINAÇÃO*/
+
+.pagination {
+    margin-bottom: 0;
+}
+
+.page-link {
+    border-radius: 6px !important;
+    margin: 0 2px;
+}
+
 
 /* FOOTER*/
 footer {
