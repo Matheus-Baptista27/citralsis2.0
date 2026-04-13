@@ -38,4 +38,4 @@ RUN ls -la public/build
 EXPOSE 10000
 
 # Iniciar aplicação
-CMD php -S 0.0.0.0:10000 -t public
+CMD php artisan migrate --force && php -S 0.0.0.0:10000 -t public
