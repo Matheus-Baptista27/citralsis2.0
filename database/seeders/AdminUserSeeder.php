@@ -14,7 +14,7 @@ class AdminUserSeeder extends Seeder
             [
                 'name' => 'Matheus',
                 'email' => 'matheus.baptista@citral.tur.br',
-                'password' => '123456',
+                'password' => 'Mbs1903.',
             ],
             [
                 'name' => 'Adriano',
