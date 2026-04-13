@@ -38,4 +38,4 @@ RUN ls -la public/build
 EXPOSE 10000
 
 # Iniciar aplicação
-CMD php artisan migrate:fresh --force && php -S 0.0.0.0:10000 -t public
+CMD sh -c "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=10000"
