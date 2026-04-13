@@ -37,10 +37,5 @@ RUN ls -la public/build
 # Porta usada pelo Render
 EXPOSE 10000
 
-RUN php artisan config:clear
-RUN php artisan cache:clear
-RUN php artisan route:clear
-RUN php artisan view:clear
-
 # Iniciar aplicação
 CMD php -S 0.0.0.0:10000 -t public
