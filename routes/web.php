@@ -20,7 +20,7 @@ Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('aut
 Route::get('/admin', [EventController::class, 'admin'])->middleware('auth');
 
 
-//rota para admin criar usuarios e etc
+//rota par  a admin criar usuarios e etc
 Route::middleware('auth')->group(function () {
 
     Route::get('/users', [UserController::class, 'index']);
@@ -50,7 +50,7 @@ Route::get('/contact', function () {
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view ('dashboard');
     })->name('dashboard');
 });*/
 
